@@ -20,7 +20,10 @@ if(process.env.NODE_ENV === 'production') {
   app.use(express.static(__dirname + '/public/'));
 
   // Handle SPA
-  app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
+  app.get(/.*/, (req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
+    console.log(process.env.NODE_ENV);
+  });
 }
 
 //mongodb+srv://andrey_1:kek123@cluster0-wsoju.mongodb.net/test?retryWrites=true&w=majority
