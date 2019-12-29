@@ -40,7 +40,7 @@ const uri = "mongodb+srv://andrey_1:kek123@cluster0-wsoju.mongodb.net/test?retry
 //   const client = await mongodb.MongoClient(uri, { useNewUrlParser: true });
 // }
 async function loadPostsCollection() {
-  const client = await mongodb.MongoClient.connect(uri, {useNewUrlParser: true});
+  const client = await mongodb.MongoClient.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});
 
   return client.db("vue_express").collection("posts");
 }

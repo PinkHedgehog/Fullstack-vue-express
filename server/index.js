@@ -12,6 +12,17 @@ app.use(cors());
 const posts = require('./routes/api/posts');
 
 app.use('/api/posts', posts);
+
+// Handle production
+
+if(process.env.NODE_ENV === 'production') {
+  // static
+  app.use(express.static(__dirname + '/public/'));
+
+  // Handle SPA
+  app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
+}
+
 //mongodb+srv://andrey_1:kek123@cluster0-wsoju.mongodb.net/test?retryWrites=true&w=majority
 const port = process.env.PORT || 8000;
 
