@@ -15,7 +15,7 @@ app.use('/api/posts', posts);
 
 // Handle production
 
-if(process.env.NODE_ENV === 'production') {
+if(process.env.NODE_ENV === 'production' || true) {
   // static
   app.use(express.static(__dirname + '/public/'));
 
@@ -27,6 +27,6 @@ if(process.env.NODE_ENV === 'production') {
 }
 
 //mongodb+srv://andrey_1:kek123@cluster0-wsoju.mongodb.net/test?retryWrites=true&w=majority
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
